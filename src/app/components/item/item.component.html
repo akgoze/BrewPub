@@ -1,1 +1,11 @@
-<p>beer-item works!</p>
+<div class="beer-item">
+  <div class="img-wrapper">
+    <img src="{{beer.image_url}}" alt="{{beer.name}}" class="beer-item--image">
+  </div>
+  <div class="beer-item--content">
+    <h4 class="flg">{{beer.name}}</h4>
+    <p>{{beer.tagline}}</p>
+    <p class="fxs">pH: {{beer.ph}} - {{beer.abv}}%</p>
+    <p class="fxs">{{beer.first_brewed}}</p>
+  </div>
+</div>
