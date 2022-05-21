@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-
+  search: string = '';
   constructor() { }
-
+  searchKeyUp(event: any) {
+    console.log(event.target.value);
+  }
   ngOnInit(): void {
   }
 
