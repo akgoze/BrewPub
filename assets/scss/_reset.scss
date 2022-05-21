@@ -29,7 +29,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+  background: #FBFBF9;
 	line-height: 1;
+	&.hidden {
+		overflow: hidden;
+	}
 }
 ol, ul {
 	list-style: none;
@@ -46,3 +50,38 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+body {
+  font-family: $fontInter;
+  font-size: 16px;
+  line-height: 1.5;
+	padding-top: 72px;
+}
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+}
+html,body, button, input, select, textarea, * {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+}
+body * {
+	box-sizing: border-box;
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 3px;
+		border-radius: 4px;
+	}
+	
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: rgba(241, 241, 241, 0); 
+	}
+	 
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: #888; 
+		border-radius: 4px;
+	}
+}
+
+
