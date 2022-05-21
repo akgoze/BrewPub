@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './components/item/item.component';
 import { ListComponent } from './components/list/list.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
     ListComponent,
-    SearchComponent
+    SearchComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
