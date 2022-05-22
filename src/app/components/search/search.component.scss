@@ -1,6 +1,11 @@
 #Search {
   margin: 16px 28px;
 }
+#Header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
 #SearchForm {
   position: relative;
   z-index: 10;
