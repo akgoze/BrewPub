@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Beer } from 'src/app/models/Beer';
 
 @Component({
   selector: 'app-search-results',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-
-  constructor() { }
+  @Input() searchResults: Beer[] = [];
+  @Input() recentSearches: string[] = [];
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }

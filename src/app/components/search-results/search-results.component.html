@@ -1,1 +1,10 @@
-<p>search-results works!</p>
+<section class="search-results" id="searchResults">
+  <div class="research-history-wrapper" *ngIf="searchResults.length == 0">
+    <h3 class="title fmd">Recent Searches</h3>
+    <nav class="list-group">
+      <a [routerLink]="['/']" [queryParams]="{search: item}" *ngFor="let item of recentSearches" class="list-item fsm icon icon-search">{{ item }}</a>
+    </nav>
+  </div>
+  <list-item *ngFor="let beer of searchResults" [beer]="beer"></list-item>
+</section>
+<div class="overlay"></div>

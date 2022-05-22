@@ -1,0 +1,34 @@
+@import './../../../assets/scss/variables';
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+}
+#searchResults {
+  position: relative;
+  z-index: 2;
+}
+.search-results {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+  padding: 18px 16px;
+  .title {
+    margin-bottom: 12px;
+  }
+  .list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    .list-item {
+      color: rgba($color: $dark, $alpha: 0.5);
+    }
+  }
+}
