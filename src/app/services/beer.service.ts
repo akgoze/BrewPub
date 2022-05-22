@@ -13,8 +13,8 @@ export class BeerService {
   ) { }
 
 
-  getAllBeers():Observable<Beer[]> {
-    return this._http.get<Beer[]>('https://api.punkapi.com/v2/beers?page=1&per_page=5');
+  getAllBeers(pageId:number):Observable<Beer[]> {
+    return this._http.get<Beer[]>(`https://api.punkapi.com/v2/beers?page=${pageId}&per_page=10`);
   }
 
   searchBeers(searchTerm: string):Observable<Beer[]> {
