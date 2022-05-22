@@ -1,6 +1,11 @@
 <section class="list-container">
-  <h1>Beers</h1>
-  <list-item *ngFor="let beer of beers | paginate: { itemsPerPage: 10, currentPage: p }"" [beer]="beer"></list-item>
+  <list-item *ngFor="let beer of beers | paginate: {
+  itemsPerPage: 10,
+  currentPage: p,
+  totalItems: 100 }" [beer]="beer"></list-item>
 
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls 
+  (pageChange)="pageChanged($event)"
+  previousLabel=""
+  nextLabel=""></pagination-controls>
 </section>
