@@ -1,4 +1,24 @@
-<div class="form-group icon icon-search">
-  <input type="text" class="form-control" id="search" placeholder="Search for drink " (keyup)="searchKeyUp($event)">
-  <button type="button"></button>
-</div>
+<section id="Search">
+  <form id="SearchForm" #searchForm="ngForm" (submit)="searchBeer()">
+    <div class="form-group icon icon-search">
+      <input 
+        type="text" 
+        class="form-control" 
+        name="search" 
+        (focus)="isFocusSearchInput = true"
+        placeholder="Search for drink" 
+        [(ngModel)]="searchTerm" 
+        autocomplete="off"
+        keyup.enter="searchBeer()"
+        required>
+      <button 
+        type="reset" 
+        class="btn btn-solid btn-icon icon icon-close btn-reset" 
+        *ngIf="isFocusSearchInput || searchTerm.length > 0" 
+        (click)="resetSearch()"></button>
+        <hr class="break" *ngIf="isFocusSearchInput || searchTerm.length > 0">
+        <small class="error-text fxs" *ngIf="isFocusSearchInput || searchTerm.length > 0">Press enter to search.</small>
+    </div>
+  </form>
+  <app-search-results *ngIf="isFocusSearchInput" [searchResults]="searchResultData" [recentSearches]="recentSearchesData.data"></app-search-results>
+</section>

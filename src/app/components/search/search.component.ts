@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouteConfigLoadEnd, Router } from '@angular/router';
+import { Beer } from 'src/app/models/Beer';
+import { BeerService } from 'src/app/services/beer.service';
 
 @Component({
   selector: 'app-search',
@@ -6,12 +9,76 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  search: string = '';
-  constructor() { }
-  searchKeyUp(event: any) {
-    console.log(event.target.value);
+  searchTerm: string = '';
+  showSearchResults: boolean = false;
+  isFocusSearchInput: boolean = false;
+  searchResultData: Beer[] = [];
+  recentSearchesData: any;
+  
+  constructor(
+    private _beerService: BeerService,
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router
+  ) { 
+
   }
+  searchBeer() {
+    if (this.searchTerm.length > 3) {
+      // this.showSearchResults = true;
+
+
+      this._beerService.searchBeers(this.searchTerm).subscribe(beers => {
+          this.searchResultData = beers;
+          this.showSearchResults = true;
+          
+          this._router.navigate([], { queryParams: { search: this.searchTerm } });
+          if (
+            beers.length > 0 && 
+            !this.recentSearchesData.data.includes(this.searchTerm)) {
+              console.log(this.recentSearchesData);
+              this.recentSearchesData.data.unshift(this.searchTerm);
+
+            if (this.recentSearchesData.data.length > 5) {
+              this.recentSearchesData.data.pop();
+            }
+            localStorage.setItem('searchSuggestions',JSON.stringify(this.recentSearchesData));
+          }
+          
+        }
+      );
+    }
+  }
+  resetSearch() {
+    this.searchTerm = ''; 
+    this.isFocusSearchInput = false; 
+    this.showSearchResults=false;
+    this.searchResultData = [];
+    this._router.navigate(['/']);
+  }
+  
   ngOnInit(): void {
+    const getSuggections:any = localStorage.getItem('searchSuggestions');
+    this.recentSearchesData = JSON.parse(getSuggections);
+    console.log(this.recentSearchesData.data);
+
+    this._activatedRoute.queryParams.subscribe(params => {
+      let searchParam = params['search'];
+      console.log('searchParam', params['search']);
+      
+      if (searchParam != undefined) {
+        this._beerService.searchBeers(searchParam).subscribe(beers => {
+          this.searchResultData = beers;
+          this.searchTerm = searchParam;
+          this.isFocusSearchInput = true;
+          this.showSearchResults = true;
+        });
+      }
+    });
+    // console.log(localStorage.getItem('searchSuggestions'));
+    // let data = localStorage.getItem('searchSuggestions');
+    // this.recentSearches = localStorage.getItem('recentSearchData') === null ? localStorage.setItem('recentSearchData', JSON.stringify([])) : localStorage.getItem('recentSearchData');
+    // localStorage.setItem('searchSuggestions', JSON.stringify("['Google', 'Yahoo', 'Bing']"));
+    // console.log(localStorage.getItem('searchSuggestions'));
   }
 
 }
