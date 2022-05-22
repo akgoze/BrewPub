@@ -9,6 +9,9 @@ import { ListComponent } from './components/list/list.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
