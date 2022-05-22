@@ -10,6 +10,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
