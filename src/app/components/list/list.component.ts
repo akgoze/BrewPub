@@ -9,6 +9,7 @@ import { Beer } from 'src/app/models/Beer';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  p: number = 1;
   beers: any[] = [
     {
       "id": 1,
@@ -135,12 +136,12 @@ export class ListComponent implements OnInit {
     private _http: HttpClient
   ) { }
     getBeers() {
-      this._beerService.getAllBeers().subscribe(beers => {
+      this._beerService.getAllBeers(1).subscribe(beers => {
         console.log(beers);
     })
     }
   ngOnInit(): void {
-    // this.getBeers();
+    this.getBeers();
   }
 
 }
