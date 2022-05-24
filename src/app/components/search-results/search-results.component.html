@@ -1,5 +1,8 @@
 <section class="search-results" id="searchResults">
-  <div class="research-history-wrapper" *ngIf="searchResults.length == 0">
+  <div class="search-results__header" *ngIf="searchResults == null">
+    <h2 class="search-results__title fxl">No results found</h2>
+  </div>
+  <div class="research-history-wrapper" *ngIf="searchResults?.length == 0 ">
     <h3 class="title fmd">Recent Searches</h3>
     <nav class="list-group">
       <a [routerLink]="['/']" [queryParams]="{search: item}" *ngFor="let item of recentSearches" class="list-item fsm icon icon-search">{{ item }}</a>

@@ -79,14 +79,12 @@ export class SearchComponent implements OnInit {
           this.searchTerm = searchParam;
           this.isFocusSearchInput = true;
           this.showSearchResults = true;
+          if (beers.length == 0) {
+            this.searchResultData = null;
+          }
         });
       }
     });
-    // console.log(localStorage.getItem('searchSuggestions'));
-    // let data = localStorage.getItem('searchSuggestions');
-    // this.recentSearches = localStorage.getItem('recentSearchData') === null ? localStorage.setItem('recentSearchData', JSON.stringify([])) : localStorage.getItem('recentSearchData');
-    // localStorage.setItem('searchSuggestions', JSON.stringify("['Google', 'Yahoo', 'Bing']"));
-    // console.log(localStorage.getItem('searchSuggestions'));
   }
 
 }
