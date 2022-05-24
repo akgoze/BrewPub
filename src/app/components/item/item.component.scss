@@ -24,4 +24,25 @@
     margin: auto;
     display: block;
   }
+  &--content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .tagline {
+      flex-grow: 1;
+    }
+  }
+  &--meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .first_brewed {
+      border-radius: 8px;
+      background: rgb(131 35 114);
+      padding: 2px 8px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+  }
 }

@@ -3,9 +3,11 @@
     <img src="{{beer.image_url}}" alt="{{beer.name}}" class="beer-item--image">
   </div>
   <div class="beer-item--content">
-    <h4 class="flg">{{beer.name}}</h4>
-    <p>{{beer.tagline}}</p>
-    <p class="fxs">pH: {{beer.ph}} - {{beer.abv}}%</p>
-    <p class="fxs">{{beer.first_brewed}}</p>
+    <h4 class="flg title">{{beer.name}}</h4>
+    <p class="fbase tagline">{{beer.tagline}}</p>
+  </div>
+  <div class="beer-item--meta">
+    <p class="fxs ph">pH: {{beer.ph}} - {{beer.abv}}%</p>
+    <p class="fxs first_brewed"><span class="first_brewed--date">{{beer.first_brewed}}</span></p>
   </div>
 </div>
