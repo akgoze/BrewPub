@@ -7,17 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BeerService {
-
+  apiURL = 'https://api.punkapi.com/v2/beers';
   constructor(
     private _http: HttpClient
   ) { }
 
-
   getAllBeers(pageId:number):Observable<Beer[]> {
-    return this._http.get<Beer[]>(`https://api.punkapi.com/v2/beers?page=${pageId}&per_page=10`);
+    return this._http.get<Beer[]>(`${this.apiURL}?page=${pageId}&per_page=10`);
   }
 
   searchBeers(searchTerm: string):Observable<Beer[]> {
-    return this._http.get<Beer[]>(`https://api.punkapi.com/v2/beers?beer_name=${searchTerm}`);
+    return this._http.get<Beer[]>(`${this.apiURL}?beer_name=${searchTerm}`);
   }
 }
