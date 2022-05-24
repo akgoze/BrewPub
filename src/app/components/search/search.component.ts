@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, RouteConfigLoadEnd, Router } from '@angular/router';
 import { Beer } from 'src/app/models/Beer';
 import { BeerService } from 'src/app/services/beer.service';
@@ -12,20 +12,25 @@ export class SearchComponent implements OnInit {
   searchTerm: string = '';
   showSearchResults: boolean = false;
   isFocusSearchInput: boolean = false;
-  searchResultData: Beer[] = [];
+  searchResultData: Beer[] | null = [];
+
   recentSearchesData: any;
   
   constructor(
     private _beerService: BeerService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _renderer: Renderer2
   ) { 
 
   }
+  toggleBodyClass(status:boolean) {
+    status ? this._renderer.addClass(document.body, 'hidden') : this._renderer.removeClass(document.body, 'hidden');
+  }
+
   searchBeer() {
     if (this.searchTerm.length > 3) {
       // this.showSearchResults = true;
-
 
       this._beerService.searchBeers(this.searchTerm).subscribe(beers => {
           this.searchResultData = beers;
@@ -53,9 +58,11 @@ export class SearchComponent implements OnInit {
     this.isFocusSearchInput = false; 
     this.showSearchResults=false;
     this.searchResultData = [];
+    this.toggleBodyClass(false);
     this._router.navigate(['/']);
   }
-  
+
+
   ngOnInit(): void {
     const getSuggections:any = localStorage.getItem('searchSuggestions');
     this.recentSearchesData = JSON.parse(getSuggections);
@@ -66,6 +73,7 @@ export class SearchComponent implements OnInit {
       console.log('searchParam', params['search']);
       
       if (searchParam != undefined) {
+        this.toggleBodyClass(true);
         this._beerService.searchBeers(searchParam).subscribe(beers => {
           this.searchResultData = beers;
           this.searchTerm = searchParam;
