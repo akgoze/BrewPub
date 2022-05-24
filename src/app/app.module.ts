@@ -8,10 +8,9 @@ import { ItemComponent } from './components/item/item.component';
 import { ListComponent } from './components/list/list.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import {NgxPaginationModule} from 'ngx-pagination';
-import { FilterComponent } from './components/filter/filter.component'; 
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { FilterComponent } from './components/filter/filter.component';
     ListComponent,
     SearchComponent,
     SearchResultsComponent,
-    FilterComponent
   ],
   imports: [
     BrowserModule,
