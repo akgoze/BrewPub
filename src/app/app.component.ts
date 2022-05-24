@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BrewPub';
+  isFilterShow:boolean = false;
+
+  getFilterStatus($event:any) {
+    this.isFilterShow = $event;
+  }
 }
