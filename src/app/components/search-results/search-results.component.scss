@@ -11,6 +11,15 @@
 #searchResults {
   position: relative;
   z-index: 2;
+  height: calc(100vh - 210px);
+  overflow: auto;
+  .beer-item {
+    box-shadow: none;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 .search-results {
   background: #FFFFFF;
@@ -18,7 +27,7 @@
   border-radius: 10px;
   position: relative;
   z-index: 2;
-  padding: 18px 16px;
+  padding: 16px;
   .title {
     margin-bottom: 12px;
   }
