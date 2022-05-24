@@ -5,6 +5,6 @@
       <a [routerLink]="['/']" [queryParams]="{search: item}" *ngFor="let item of recentSearches" class="list-item fsm icon icon-search">{{ item }}</a>
     </nav>
   </div>
-  <list-item *ngFor="let beer of searchResults" [beer]="beer"></list-item>
+  <list-item *ngFor="let beer of searchResults" [beer]="beer" [listView]="'withoutshadow'"></list-item>
 </section>
 <div class="overlay"></div>

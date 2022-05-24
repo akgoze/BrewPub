@@ -20,6 +20,8 @@ export class ItemComponent implements OnInit {
     first_brewed: '',
   };
 
+  @Input() listView: 'withshadow' | 'withoutshadow' | undefined = 'withshadow';
+
   constructor() { }
 
   ngOnInit(): void {
