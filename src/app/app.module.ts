@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+
+import { HeaderComponent } from './components/header/header.component';
 import { ItemComponent } from './components/item/item.component';
 import { ListComponent } from './components/list/list.component';
 import { SearchComponent } from './components/search/search.component';
@@ -20,6 +22,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ListComponent,
     SearchComponent,
     SearchResultsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
