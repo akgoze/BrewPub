@@ -65,12 +65,19 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     const getSuggections:any = localStorage.getItem('searchSuggestions');
-    this.recentSearchesData = JSON.parse(getSuggections);
-    console.log(this.recentSearchesData.data);
+
+    if(getSuggections != null) {
+      this.recentSearchesData = JSON.parse(getSuggections);
+      
+      
+    } else {
+      localStorage.setItem('searchSuggestions', JSON.stringify({data:[]}));
+      this.recentSearchesData = {data:[]};
+    }
+
 
     this._activatedRoute.queryParams.subscribe(params => {
       let searchParam = params['search'];
-      console.log('searchParam', params['search']);
       
       if (searchParam != undefined) {
         this.toggleBodyClass(true);

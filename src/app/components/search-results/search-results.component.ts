@@ -8,12 +8,13 @@ import { Beer } from 'src/app/models/Beer';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() searchResults: Beer[] | null = [];
-  @Input() recentSearches: string[] | null = null;
+  @Input() recentSearches: any = null;
   constructor() { 
     
   }
 
   ngOnInit(): void {
+    
   }
 
 }
