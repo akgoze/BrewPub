@@ -7,7 +7,7 @@ import { Beer } from 'src/app/models/Beer';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() searchResults: Beer[] | null = [];
+  @Input() searchResults: Beer[] = [];
   @Input() recentSearches: any = null;
   constructor() { 
     

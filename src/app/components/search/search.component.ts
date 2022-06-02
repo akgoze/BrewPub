@@ -12,7 +12,7 @@ export class SearchComponent implements OnInit {
   searchTerm: string = '';
   showSearchResults: boolean = false;
   isFocusSearchInput: boolean = false;
-  searchResultData: Beer[] | null = [];
+  searchResultData: Beer[] = [];
 
   recentSearchesData: any;
   
@@ -86,9 +86,6 @@ export class SearchComponent implements OnInit {
           this.searchTerm = searchParam;
           this.isFocusSearchInput = true;
           this.showSearchResults = true;
-          if (beers.length == 0) {
-            this.searchResultData = null;
-          }
         });
       }
     });
